@@ -19,7 +19,7 @@
         author = author.replace(/\s+/g, '');
         key += author;
     });
-    key += /year={(.*)},/.exec(bibtex)[1];
+    key += /year={(.*)}/.exec(bibtex)[1];
     element.innerText = bibtex.replace(/@(.*){(.*),/.exec(bibtex)[2], key);
 })();
 
