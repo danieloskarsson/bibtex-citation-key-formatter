@@ -20,6 +20,6 @@
         key += author;
     });
     key += /year={(.*)},/.exec(bibtex)[1];
-    element.innerText = bibtex.replace(/@article{(.*),/.exec(bibtex)[1], key);
+    element.innerText = bibtex.replace(/@(.*){(.*),/.exec(bibtex)[2], key);
 })();
 
