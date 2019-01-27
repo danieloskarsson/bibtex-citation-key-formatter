@@ -13,13 +13,13 @@
     var element = document.getElementsByTagName('pre')[0]
     var bibtex = element.innerText;
     var key = '';
-    /author={(.*)},/.exec(bibtex)[1].split(' and ').forEach(author => {
+    /author={(.*)},?\r?\n/.exec(bibtex)[1].split(' and ').forEach(author => {
         author = author.substring(0, author.indexOf(','))
         author = author.charAt(0).toUpperCase() + author.slice(1)
         author = author.replace(/\s+/g, '');
         key += author;
     });
-    key += /year={(.*)}/.exec(bibtex)[1];
+    key += /year={(.*)},?\r?\n/.exec(bibtex)[1];
     element.innerText = bibtex.replace(/@(.*){(.*),/.exec(bibtex)[2], key);
 })();
 
