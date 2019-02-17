@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Scholar Bibtex Key
 // @namespace    http://github.com/danieloskarsson/bibtex-citation-key-formatter
-// @version      6
+// @version      7
 // @description  Rename Bibtex citation-keys provided by Google Scholar according to the format "Author1Author2Author3...YYYY"
 // @author       Daniel Oskarsson
 // @match        https://scholar.googleusercontent.com/scholar.bib*
@@ -23,5 +23,5 @@
         key += author;
     });
     key += year;
-    element.innerText = bibtex.replace(/@(.*){(.*),/.exec(bibtex)[2], key);
+    element.innerText = bibtex.replace(/@(.*){(.*),/.exec(bibtex)[2], key.replace(/[\W_]+/g, ""));
 })();
